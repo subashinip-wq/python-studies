@@ -1,0 +1,17 @@
+def show_admission(name, course, city):
+    print("---- Admission Details ----")
+    print(f"Student : {name}")
+    print(f"Course  : {course}")
+    print(f"City    : {city}")
+    print("---------------------------")
+
+show_admission("Ravi Kumar", "BCA", "Chennai")
+show_admission("Priya", "B.Sc CS", "Coimbatore")
+
+#defualt parameter:
+
+def show_admission(name, city, course="Not Selected"):
+    print(f"{name} from {city}: {course}")
+
+show_admission("Kiran", "Madurai")              # uses default
+show_admission("Anbu", "Salem", "B.Com")        # overrides default
