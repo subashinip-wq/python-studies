@@ -1,0 +1,18 @@
+#EXERCISE 1 :
+
+name = input("Enter your name: ")
+area = input("Enter your city: ")
+course = input("Enter your course: ")
+
+print(f"Admission: {course} in {area} by {name}")
+
+#EXERCISE 2 :
+
+def check_marksheet_uploaded(marksheet_uploaded):
+    if marksheet_uploaded:
+        print("Marksheet attached")
+    else:
+        print("No marksheet-PLEASE CROSSCHECK")
+
+check_marksheet_uploaded(True)
+check_marksheet_uploaded(False)
