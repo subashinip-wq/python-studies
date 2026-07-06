@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Live Rates</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="rate-page">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg">
+
+<div class="container">
+    <div class="row text-center mb-5">
+
+    <div class="col-md-3 mb-3">
+
+        <div class="info-card">
+
+            <i class="fas fa-circle text-success"></i>
+
+            <h5>Market Status</h5>
+
+            <p>OPEN</p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3 mb-3">
+
+        <div class="info-card">
+
+            <i class="fas fa-calendar"></i>
+
+            <h5>Last Updated</h5>
+
+            <p id="date"></p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3 mb-3">
+
+        <div class="info-card">
+
+            <i class="fas fa-rupee-sign"></i>
+
+            <h5>Currency</h5>
+
+            <p>INR</p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3 mb-3">
+
+        <div class="info-card">
+
+            <i class="fas fa-sync-alt"></i>
+
+            <h5>Refresh</h5>
+
+            <p id="countdown">60 sec</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<a class="navbar-brand fw-bold text-warning" href="/">
+<i class="fas fa-coins"></i> GoldRates
+</a>
+
+<button class="navbar-toggler" type="button"
+data-bs-toggle="collapse"
+data-bs-target="#navbarNav">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="navbarNav">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link active" href="/">
+<i class="fas fa-home"></i> Home
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="/rates">
+<i class="fas fa-chart-line"></i> Live Rates
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#">
+<i class="fas fa-info-circle"></i> About
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<div class="container">
+
+<h1>Today's Live Market Rates</h1>
+
+<div id="clock"></div>
+
+<div class="cards">
+
+<div class="card gold">
+
+<h2>
+    🥇 Gold 24K
+    <span class="trend
+    {% if trends.gold24 == '▲' %}
+        up
+    {% else %}
+        down
+    {% endif %}
+    ">
+        {{ trends.gold24 }}
+    </span>
+</h2>
+
+<h3>₹{{ rates.gold24 }}</h3>
+
+<p>Per 10 Grams</p>
+
+</div>
+
+<div class="card gold">
+
+<h2>
+    🟨 Gold 22K
+    <span class="trend
+    {% if trends.gold22 == '▲' %}
+        up
+    {% else %}
+        down
+    {% endif %}
+    ">
+        {{ trends.gold22 }}
+    </span>
+</h2>
+
+<h3>₹{{ rates.gold22 }}</h3
+
+<p>Per 10 Grams</p>
+
+</div>
+
+<div class="card silver">
+
+<h2>
+    ⚪ Silver
+    <span class="trend
+    {% if trends.silver == '▲' %}
+        up
+    {% else %}
+        down
+    {% endif %}
+    ">
+        {{ trends.silver }}
+    </span>
+</h2>
+
+<h3>₹{{ rates.silver }}</h3>
+
+
+<p>Per Kilogram</p>
+
+</div>
+
+</div>
+
+<a href="/" class="home-btn">
+
+← Back Home
+
+</a>
+
+</div>
+
+<footer>
+
+Developed using Flask | HTML | CSS | JavaScript
+
+</footer>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
